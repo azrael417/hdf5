@@ -1393,10 +1393,10 @@ if test -n "$CUFILE_DIR"; then
     AC_MSG_ERROR([GDS VFD was requested but missing cuda path, verify --with-cuda=])
   fi
 
-  CPPFLAGS="$CPPFLAGS -I$CUFILE_DIR/lib"
-  AM_CPPFLAGS="$AM_CPPFLAGS -I$CUFILE_DIR/lib"
-  LDFLAGS="$LDFLAGS -L$CUFILE_DIR/lib -lcufile"
-  AM_LDFLAGS="$AM_LDFLAGS -L$CUFILE_DIR/lib -lcufile"
+  CPPFLAGS="$CPPFLAGS -I$CUFILE_DIR/include"
+  AM_CPPFLAGS="$AM_CPPFLAGS -I$CUFILE_DIR/include"
+  LDFLAGS="$LDFLAGS -L$CUFILE_DIR/lib64 -lcufile"
+  AM_LDFLAGS="$AM_LDFLAGS -L$CUFILE_DIR/lib64 -lcufile"
 fi
 ##################### END CUDA #####################
 
