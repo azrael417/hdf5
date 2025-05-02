@@ -197,7 +197,7 @@ write_thread_fn(void *data)
             ret      = cuFileWrite(td->cfr_handle, td->u.wr_devPtr, td->size, td->offset, td->devPtr_offset);
             td->size = 0;
         }
-	fprintf(stderr, "RETURN STATE %d", ret);
+	fprintf(stderr, "RETURN STATE %ld", ret);
         assert(ret > 0);
     }
 
