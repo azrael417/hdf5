@@ -181,10 +181,8 @@ write_thread_fn(void *data)
     ssize_t        ret;
     thread_data_t *td = (thread_data_t *)data;
 
-    
-    fprintf(stderr, "wrt thread -- ptr: %p, size: %lu, foffset: %ld, doffset: %ld\n",
-	    td->u.wr_devPtr, td->size, td->offset, td->devPtr_offset);
-    
+    fprintf(stderr, "wrt thread -- ptr: %p, size: %lu, foffset: %ld, doffset: %ld\n", td->u.wr_devPtr,
+            td->size, td->offset, td->devPtr_offset);
 
     while (td->size > 0) {
         if (td->size > td->block_size) {
@@ -197,7 +195,7 @@ write_thread_fn(void *data)
             ret      = cuFileWrite(td->cfr_handle, td->u.wr_devPtr, td->size, td->offset, td->devPtr_offset);
             td->size = 0;
         }
-	fprintf(stderr, "RETURN STATE %d", ret);
+        fprintf(stderr, "RETURN STATE %d", ret);
         assert(ret > 0);
     }
 
