@@ -1472,6 +1472,8 @@ H5FD__gds_write(H5FD_t *_file, H5FD_mem_t H5_ATTR_UNUSED type, hid_t H5_ATTR_UNU
 
     off_t offset = (off_t)addr;
 
+    printf("H5FD__gds_write: start of writing");
+
     FUNC_ENTER_PACKAGE
 
     assert(file && file->pub.cls);
