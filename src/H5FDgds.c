@@ -1487,8 +1487,7 @@ H5FD__gds_write(H5FD_t *_file, H5FD_mem_t H5_ATTR_UNUSED type, hid_t H5_ATTR_UNU
 
     fprintf(stderr, "%s:%u - is_device_pointer(buf) = %d\n", __func__, __LINE__, is_device_pointer(buf));
 
-    if (is_device_pointer(buf))
-    {
+    if (is_device_pointer(buf)) {
         /* CUfileError_t status; */
 
         /* TODO: register device memory only once */
@@ -1551,8 +1550,7 @@ H5FD__gds_write(H5FD_t *_file, H5FD_mem_t H5_ATTR_UNUSED type, hid_t H5_ATTR_UNU
          * }
          */
     }
-    else
-    {
+    else {
         /* If the system doesn't require data to be aligned, read the data in
          * the same way as sec2 driver.
          */
