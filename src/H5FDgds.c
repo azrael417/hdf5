@@ -1482,6 +1482,8 @@ H5FD__gds_write(H5FD_t *_file, H5FD_mem_t H5_ATTR_UNUSED type, hid_t H5_ATTR_UNU
     if (REGION_OVERFLOW(addr, size))
         HGOTO_ERROR(H5E_ARGS, H5E_OVERFLOW, FAIL, "addr overflow");
 
+    printf("H5FD__gds_write: is_device_pointer(buf) = %d", is_device_pointer(buf))
+    
     if (is_device_pointer(buf)) {
         /* CUfileError_t status; */
 
@@ -1532,6 +1534,7 @@ H5FD__gds_write(H5FD_t *_file, H5FD_mem_t H5_ATTR_UNUSED type, hid_t H5_ATTR_UNU
         }
         else {
             /* FIXME: max xfer size, need to batch transfers */
+	  fprintf(stderr, "wrt -- ptr: %p, size: %lu, foffset: %ld, doffset: %ld\n", buf, size, 0, offset);
             ret = cuFileWrite(file->cf_handle, buf, size, offset, 0);
             assert(ret > 0);
         }
