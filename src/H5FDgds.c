@@ -1472,7 +1472,7 @@ H5FD__gds_write(H5FD_t *_file, H5FD_mem_t H5_ATTR_UNUSED type, hid_t H5_ATTR_UNU
 
     off_t offset = (off_t)addr;
 
-    printf("H5FD__gds_write: start of writing");
+    fprintf(stderr, "%s:%u - start of writing\n", __func__, __LINE__);
 
     FUNC_ENTER_PACKAGE
 
@@ -1485,7 +1485,7 @@ H5FD__gds_write(H5FD_t *_file, H5FD_mem_t H5_ATTR_UNUSED type, hid_t H5_ATTR_UNU
     if (REGION_OVERFLOW(addr, size))
         HGOTO_ERROR(H5E_ARGS, H5E_OVERFLOW, FAIL, "addr overflow");
 
-    printf("H5FD__gds_write: is_device_pointer(buf) = %d", is_device_pointer(buf));
+    fprintf(stderr, "%s:%u - is_device_pointer(buf) = %d\n", __func__, __LINE__, is_device_pointer(buf));
 
     if (is_device_pointer(buf))
     {
